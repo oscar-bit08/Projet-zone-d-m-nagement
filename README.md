@@ -1,5 +1,3 @@
-:
-
 🏠 Projet : Zone Déménagement
 Projet scolaire (Spécialité NSI) : Application web de recommandation de quartiers lyonnais basée sur un algorithme de scoring personnalisé.
 
