@@ -1,74 +1,66 @@
 🏠 Projet : Zone Déménagement
-Projet scolaire (Spécialité NSI) : Application web de recommandation de quartiers lyonnais basée sur un algorithme de scoring personnalisé.
+Projet scolaire (Spécialité NSI) : Système de recommandation intelligent de quartiers lyonnais basé sur un algorithme de scoring personnalisé.
 
-Ce projet a été conçu pour aider les futurs résidents à trouver le secteur idéal à Lyon en croisant des données réelles (prix m², infrastructures, transports) et des préférences utilisateurs pondérées.
+Réalisé dans le cadre de mes études au Lycée Pierre Brossolette, ce projet permet de croiser des données immobilières et sociales (SQL) avec des algorithmes de pondération (Python) pour aider un utilisateur à choisir son futur lieu de vie.
 
-🛠️ Stack & Concepts (NSI)
-Langages → Python · SQL · HTML/CSS · JavaScript
+🛠️ Stack & compétences (sur ce projet)
+Langages      → Python · SQL · HTML/CSS · JavaScript
 
-Frameworks → Flask · Jinja2
+Frameworks    → Flask · Jinja2
 
-Base de données → SQLite (Relationnelle)
+Bases         → SQLite (lyon.db)
 
-Bibliothèques → Leaflet.js (Cartographie) · OS (Gestion fichiers)
+Outils        → Leaflet.js (Cartographie dynamique) · VS Code
 
-🚀 Fonctionnalités clés
-🧠 Algorithme de scoring (POO)
-L'intelligence du projet repose sur une architecture en Programmation Orientée Objet :
+Algorithmique → Programmation Orientée Objet (POO) · Moyennes pondérées
 
-Classe Zone : Modélise les données d'un quartier (écoles, commerces, budget).
+🗂️ Détails du projet
+🧠 Logique & Algorithme (Python)
+Utilisation de la POO pour structurer les données et le traitement des scores.
 
-Classe Preference : Stocke et normalise les choix de l'utilisateur.
+Classe Zone : Modélise chaque quartier (ID, Nom, Coordonnées GPS, Budget m², Écoles, Transports...).
 
-Calculateur : Applique une moyenne pondérée pour générer un score sur 100.
+Classe Preference : Capture et normalise les critères de l'utilisateur (importance de 0 à 10).
 
-🗺️ Carte Interactive
-Intégration de Leaflet.js pour visualiser les résultats.
+Moteur de Scoring : Algorithme de calcul dynamique qui attribue une note sur 100 à chaque zone en fonction de la distance entre les données réelles et les souhaits de l'utilisateur.
 
-Marqueurs colorés dynamiques (Vert/Orange/Rouge) selon la pertinence du quartier.
+🗄️ Gestion des données (SQL)
+Structuration d'une base de données relationnelle pour la métropole lyonnaise.
 
-📊 Gestion des données
-Base de données SQLite contenant 30+ zones de la métropole lyonnaise.
+Création d'une table zones regroupant 35 quartiers (Lyon 1-9, Villeurbanne, Bron, etc.).
 
-Script d'initialisation automatique (database.sql) au premier lancement.
+Intégration de données socio-économiques : prix moyen au m², densité de crèches, scores de verdure et de commerce.
 
-📂 Structure du dépôt
+Script database.sql pour l'initialisation automatisée de l'environnement.
+
+🗺️ Interface & Visualisation
+Expérience utilisateur interactive pour rendre les résultats lisibles.
+
+Frontend : Design responsive avec sliders (curseurs) pour ajuster les priorités en temps réel.
+
+Cartographie : Intégration de Leaflet.js pour placer des marqueurs dont la couleur varie selon le score (Vert = Match parfait, Rouge = Éloigné des critères).
+
+Dashboard : Visualisation sous forme de barres de progression des scores détaillés par critère pour chaque quartier proposé.
+
+🖥️ Structure du code
 Plaintext
-├── app.py              # Serveur Flask & Logique algorithmique (Classes POO)
-├── database.sql        # Schéma et données (Inserts SQL)
-├── lyon.db             # Base de données relationnelle
+├── app.py              # Serveur Flask, Classes Zone/Preference et Algorithme
+├── database.sql        # Script d'injection des données (Lyon & Villeurbanne)
+├── lyon.db             # Base de données SQLite générée
 ├── static/
-│   └── style.css       # Design moderne et responsive
+│   └── style.css       # Design moderne (Gradients, Flexbox, Cards)
 └── templates/
-    ├── index.html      # Formulaire avec Sliders (Saisie)
-    └── resultats.html  # Affichage carte et détails des scores
-⚙️ Installation
-Cloner le dépôt :
+    ├── index.html      # Formulaire de saisie des préférences
+    └── resultats.html  # Rendu de la carte et du classement des quartiers
+📚 Compétences NSI validées
+[x] Bases de données : Modélisation et requêtes SQL.
 
-Bash
-git clone https://github.com/TON_USERNAME/projet-zone-demenagement.git
-Installer Flask :
+[x] Programmation : Utilisation des classes et méthodes (POO).
 
-Bash
-pip install flask
-Lancer l'application :
+[x] Web : Architecture Client-Serveur et protocole HTTP.
 
-Bash
-python app.py
-Accéder à l'interface sur http://localhost:5000
-
-📚 Contexte scolaire
-Ce projet valide plusieurs compétences du programme de Terminale NSI au Lycée Pierre Brossolette :
-
-[x] Traiter des données en tables (SQL)
-
-[x] Utiliser des interfaces de programmation (API Leaflet)
-
-[x] Développer une interface utilisateur web
-
-[x] Programmer en utilisant le paradigme objet
+[x] Interactivité : Manipulation du DOM et scripts côté client.
 
 📬 Contact
-Oscar — Étudiant en Terminale Maths & NSI.
-
-Actuellement en recherche d'une alternance pour un BTS SIO chez NEXA Lyon (Septembre 2026).
+Oscar — Terminale Maths & NSI.
+Admis en BTS SIO chez NEXA Lyon, recherche une alternance pour septembre 2026.
