@@ -1,66 +1,74 @@
-🏠 Projet : Zone Déménagement
-Projet scolaire (Spécialité NSI) : Système de recommandation intelligent de quartiers lyonnais basé sur un algorithme de scoring personnalisé.
+# 🏠 Projet : Zone Déménagement
 
-Réalisé dans le cadre de mes études au Lycée Pierre Brossolette, ce projet permet de croiser des données immobilières et sociales (SQL) avec des algorithmes de pondération (Python) pour aider un utilisateur à choisir son futur lieu de vie.
+> **Projet scolaire (Spécialité NSI)** : Système de recommandation intelligent de quartiers lyonnais basé sur un algorithme de scoring personnalisé.
 
-🛠️ Stack & compétences (sur ce projet)
-Langages      → Python · SQL · HTML/CSS · JavaScript
+Ce projet permet à un utilisateur de trouver son quartier idéal dans la métropole lyonnaise en croisant des données réelles (prix au m², infrastructures, transports) avec ses propres priorités (budget, enfants, écologie).
 
-Frameworks    → Flask · Jinja2
+---
 
+## 🛠️ Stack & compétences (sur ce projet)
+
+Langages      → Python 3 · SQL · HTML/CSS · JavaScript
+Frameworks    → Flask (Backend) · Jinja2 (Templating)
 Bases         → SQLite (lyon.db)
+Cartographie  → Leaflet.js (OpenStreetMap)
+Concepts      → Programmation Orientée Objet (POO) · Algorithmique de pondération
 
-Outils        → Leaflet.js (Cartographie dynamique) · VS Code
+---
 
-Algorithmique → Programmation Orientée Objet (POO) · Moyennes pondérées
+## 🗂️ Détails techniques
 
-🗂️ Détails du projet
-🧠 Logique & Algorithme (Python)
-Utilisation de la POO pour structurer les données et le traitement des scores.
+### 🧠 Algorithme de Scoring (POO)
+L'intelligence du projet repose sur une architecture en classes (visibles dans app.py) :
+* Classe Zone : Modélise les données d'un quartier (GPS, prix_m2, scores transport/vert/commerce).
+* Classe Preference : Capture les choix de l'utilisateur et calcule les poids normalisés.
+* Moteur de calcul : Applique une moyenne pondérée pour attribuer une note finale sur 100 à chaque zone.
 
-Classe Zone : Modélise chaque quartier (ID, Nom, Coordonnées GPS, Budget m², Écoles, Transports...).
+### 🗄️ Base de données (SQL)
+* Modélisation : Utilisation d'une base SQLite contenant les données de 35 zones de Lyon, Villeurbanne et Bron.
+* Initialisation : Le script database.sql permet de générer la base de données lyon.db automatiquement au premier lancement du serveur via une fonction dédiée dans app.py.
 
-Classe Preference : Capture et normalise les critères de l'utilisateur (importance de 0 à 10).
+### 🗺️ Interface & Carte
+* Leaflet.js : Affichage d'une carte interactive avec des marqueurs colorés dynamiquement (Vert/Orange/Rouge) selon le score de compatibilité.
+* UI : Formulaire moderne utilisant des sliders pour ajuster l'importance de chaque critère en temps réel.
 
-Moteur de Scoring : Algorithme de calcul dynamique qui attribue une note sur 100 à chaque zone en fonction de la distance entre les données réelles et les souhaits de l'utilisateur.
+---
 
-🗄️ Gestion des données (SQL)
-Structuration d'une base de données relationnelle pour la métropole lyonnaise.
+## 📄 Liste des fichiers
 
-Création d'une table zones regroupant 35 quartiers (Lyon 1-9, Villeurbanne, Bron, etc.).
+* app.py : Serveur Flask, définition des classes et logique de recommandation.
+* database.sql : Script SQL pour la création et le remplissage de la base.
+* lyon.db : Base de données SQLite générée.
+* index.html : Interface de saisie des préférences (Formulaire).
+* resultats.html : Affichage de la carte et du classement des quartiers.
+* style.css : Design global de l'application (Gradients et mise en page).
 
-Intégration de données socio-économiques : prix moyen au m², densité de crèches, scores de verdure et de commerce.
+---
 
-Script database.sql pour l'initialisation automatisée de l'environnement.
+## ⚙️ Lancement rapide
 
-🗺️ Interface & Visualisation
-Expérience utilisateur interactive pour rendre les résultats lisibles.
+1. Installer Flask :
+   pip install flask
 
-Frontend : Design responsive avec sliders (curseurs) pour ajuster les priorités en temps réel.
+2. Lancer le serveur :
+   python app.py
 
-Cartographie : Intégration de Leaflet.js pour placer des marqueurs dont la couleur varie selon le score (Vert = Match parfait, Rouge = Éloigné des critères).
+3. Accès : 
+   Ouvrir http://localhost:5000 dans votre navigateur.
 
-Dashboard : Visualisation sous forme de barres de progression des scores détaillés par critère pour chaque quartier proposé.
+---
 
-🖥️ Structure du code
-Plaintext
-├── app.py              # Serveur Flask, Classes Zone/Preference et Algorithme
-├── database.sql        # Script d'injection des données (Lyon & Villeurbanne)
-├── lyon.db             # Base de données SQLite générée
-├── static/
-│   └── style.css       # Design moderne (Gradients, Flexbox, Cards)
-└── templates/
-    ├── index.html      # Formulaire de saisie des préférences
-    └── resultats.html  # Rendu de la carte et du classement des quartiers
-📚 Compétences NSI validées
-[x] Bases de données : Modélisation et requêtes SQL.
+## 📚 Compétences NSI validées
 
-[x] Programmation : Utilisation des classes et méthodes (POO).
+- [x] Bases de données : Modélisation, jointures conceptuelles et requêtes SQL via Python.
+- [x] POO : Structuration du code en classes, constructeurs et méthodes.
+- [x] Web : Architecture client-serveur, protocoles HTTP (GET/POST) et rendu de templates.
 
-[x] Web : Architecture Client-Serveur et protocole HTTP.
+---
 
-[x] Interactivité : Manipulation du DOM et scripts côté client.
+## 📬 Contact
 
-📬 Contact
-Oscar — Terminale Maths & NSI.
-Admis en BTS SIO chez NEXA Lyon, recherche une alternance pour septembre 2026.
+> Oscar — Terminale Maths & NSI.
+> Admis en BTS SIO chez NEXA Lyon, recherche une alternance pour septembre 2026.
+
+[![GitHub](https://img.shields.io/badge/GitHub-oscar--bit08-181717?logo=github)](https://github.com/oscar-bit08)
